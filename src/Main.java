@@ -1,6 +1,9 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,7 +17,7 @@ public class Main {
     public static ArrayList<HeadphonePrototype> headphone_list = new ArrayList<>();
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner input = new Scanner(System.in);
 //        Gson gson = new Gson();
 
@@ -45,18 +48,27 @@ public class Main {
 
         }
 
-
-//        Iterator<HeadphonePrototype> iterator = headphone_list.iterator();
-//        while (iterator.hasNext()){
-//            System.out.println(iterator.next().getItem_description());
-//        }
+        for (HeadphonePrototype headphonePrototype : headphone_list) {
+            String summary = headphonePrototype.getItem_description()+"("+headphonePrototype.getItem_id()+")"+" is released "+headphonePrototype.get
+        }
 
 
-        GsonBuilder gsonBuilder = new GsonBuilder()
-                .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter());
-        Gson gson = gsonBuilder.setPrettyPrinting().create();
-        String json = gson.toJson(headphone_list);
-        System.out.println(json);
+//        GsonBuilder gsonBuilder = new GsonBuilder()
+//                .registerTypeAdapter(LocalDate.class, new LocalDateTypeAdapter());
+//        Gson gson = gsonBuilder.setPrettyPrinting().create();
+//        String json = gson.toJson(headphone_list);
+//        System.out.println(json);
+
+        File myfile = new File("Output.txt");
+        myfile.createNewFile();
+        myfile.setReadable(true);
+
+        FileWriter writer = new FileWriter("My_file.txt");
+        writer.write("");
+        writer.close();
+
+
+
 
     }
 }
