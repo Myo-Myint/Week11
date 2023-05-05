@@ -6,3 +6,4 @@
   * created customized localdatetypeadapter to handle LocalDate
 * Factorial function, swapping function
 * Functions of area of triangle, rectangle, square
+* Created a program that asks user input integer and search that number throughout the array
